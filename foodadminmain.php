@@ -17,5 +17,14 @@ $db->query("update totalfood set total = ($total_ht + $ht) where name = 'ht'");
 $db->query("update totalfood set total = ($total_bg + $bg) where name = 'bg'");
 $db->query("update totalfood set total = ($total_nn + $nn) where name = 'nn'");
 
-echo "<script> alert('入库成功！');window.location.href='foodadmin.php';</script>";
+$time = time();
+$sql = "insert into totaldetail (time, fbm, ht, bg, nn) values ('{$time}','{$fbm}','{$ht}','{$bg}','{$nn}')";
+
+$mysqli_result = $db->query($sql);
+if ($mysqli_result == false) {
+	echo "SQL错误！";
+	exit;
+} else {
+	echo "<script> alert('入库成功！');window.location.href='foodadmin.php';</script>";
+}
 ?>

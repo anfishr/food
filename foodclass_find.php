@@ -1,4 +1,5 @@
 <?php
+//查找total的总库存
 class find {
     function total($fbm) {
         $host = "127.0.0.1";
@@ -28,4 +29,5 @@ class find {
         
         }
 }
+
 ?>
