@@ -11,6 +11,7 @@ $total_ht = $num_find->total("ht");
 $total_bg = $num_find->total("bg");
 $total_nn = $num_find->total("nn");
 
+print_r($total_fbm);
 
 //连接数据库，取下方滚动的数据
 
