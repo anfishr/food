@@ -1,7 +1,7 @@
 <?php
 include('foodclass_find.php');
 include("fooddb.php");
-
+date_default_timezone_set('Asia/Shanghai'); 
 //取出各个食物的库存
 $num_fbm = new find();
 $total_fbm = $num_fbm->total("fbm");
@@ -31,12 +31,13 @@ $end_time = strtotime("$et");
 //fbm上月库存
 $sql = "select sum(fbm) as total from totaldetail where time <= $start_time";//初始入库，到查询时间之前的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $st_total_fbm = $total_array['total'];
 
 $sql = "select sum(fbm) as total from detail where time <= $start_time";//初始入库，到查询时间之前吃的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
+
 $st_eat_fbm = $total_array['total'];
 
 $last_stack_fbm = $st_total_fbm - $st_eat_fbm;//总量减去吃的总量等于现有库存
@@ -45,24 +46,24 @@ $last_stack_fbm = $st_total_fbm - $st_eat_fbm;//总量减去吃的总量等于�
 //本月入库
 $sql = "select sum(fbm) as total from totaldetail where time > $start_time and time <= $end_time";
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $in_stack_fbm = $total_array['total'];
 
 //本月领用
 $sql = "select sum(fbm) as total from detail where time > $start_time and time <= $end_time";
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $out_stack_fbm = $total_array['total'];
 
 //本月库存
 $sql = "select sum(fbm) as total from totaldetail where time <= $end_time";//初始入库，到查询时间之后的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $en_total_fbm = $total_array['total'];
 
 $sql = "select sum(fbm) as total from detail where time <= $end_time";//初始入库，到查询时间之前吃的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $en_eat_fbm = $total_array['total'];
 
 $this_stack_fbm = $en_total_fbm - $en_eat_fbm;//总量减去吃的总量等于现有库存
@@ -73,12 +74,12 @@ $this_stack_fbm = $en_total_fbm - $en_eat_fbm;//总量减去吃的总量等于�
 //ht上月库存
 $sql = "select sum(ht) as total from totaldetail where time <= $start_time";//初始入库，到查询时间之前的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $st_total_ht = $total_array['total'];
 
 $sql = "select sum(ht) as total from detail where time <= $start_time";//初始入库，到查询时间之前吃的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $st_eat_ht = $total_array['total'];
 
 $last_stack_ht = $st_total_ht - $st_eat_ht;//总量减去吃的总量等于现有库存
@@ -87,24 +88,24 @@ $last_stack_ht = $st_total_ht - $st_eat_ht;//总量减去吃的总量等于现�
 //本月入库
 $sql = "select sum(ht) as total from totaldetail where time > $start_time and time <= $end_time";
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $in_stack_ht = $total_array['total'];
 
 //本月领用
 $sql = "select sum(ht) as total from detail where time > $start_time and time <= $end_time";
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $out_stack_ht = $total_array['total'];
 
 //本月库存
 $sql = "select sum(ht) as total from totaldetail where time <= $end_time";//初始入库，到查询时间之后的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $en_total_ht = $total_array['total'];
 
 $sql = "select sum(ht) as total from detail where time <= $end_time";//初始入库，到查询时间之前吃的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $en_eat_ht = $total_array['total'];
 
 $this_stack_ht = $en_total_ht - $en_eat_ht;//总量减去吃的总量等于现有库存
@@ -114,12 +115,13 @@ $this_stack_ht = $en_total_ht - $en_eat_ht;//总量减去吃的总量等于现�
 //bg上月库存
 $sql = "select sum(bg) as total from totaldetail where time <= $start_time";//初始入库，到查询时间之前的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $st_total_bg = $total_array['total'];
+
 
 $sql = "select sum(bg) as total from detail where time <= $start_time";//初始入库，到查询时间之前吃的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $st_eat_bg = $total_array['total'];
 
 $last_stack_bg = $st_total_bg - $st_eat_bg;//总量减去吃的总量等于现有库存
@@ -128,24 +130,24 @@ $last_stack_bg = $st_total_bg - $st_eat_bg;//总量减去吃的总量等于现�
 //本月入库
 $sql = "select sum(bg) as total from totaldetail where time > $start_time and time <= $end_time";
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $in_stack_bg = $total_array['total'];
 
 //本月领用
 $sql = "select sum(bg) as total from detail where time > $start_time and time <= $end_time";
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $out_stack_bg = $total_array['total'];
 
 //本月库存
 $sql = "select sum(bg) as total from totaldetail where time <= $end_time";//初始入库，到查询时间之后的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $en_total_bg = $total_array['total'];
 
 $sql = "select sum(bg) as total from detail where time <= $end_time";//初始入库，到查询时间之前吃的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $en_eat_bg = $total_array['total'];
 
 $this_stack_bg = $en_total_bg - $en_eat_bg;//总量减去吃的总量等于现有库存
@@ -156,12 +158,12 @@ $this_stack_bg = $en_total_bg - $en_eat_bg;//总量减去吃的总量等于现�
 //nn上月库存
 $sql = "select sum(nn) as total from totaldetail where time <= $start_time";//初始入库，到查询时间之前的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $st_total_nn = $total_array['total'];
 
 $sql = "select sum(nn) as total from detail where time <= $start_time";//初始入库，到查询时间之前吃的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $st_eat_nn = $total_array['total'];
 
 $last_stack_nn = $st_total_nn - $st_eat_nn;//总量减去吃的总量等于现有库存
@@ -170,24 +172,24 @@ $last_stack_nn = $st_total_nn - $st_eat_nn;//总量减去吃的总量等于现�
 //本月入库
 $sql = "select sum(nn) as total from totaldetail where time > $start_time and time <= $end_time";
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $in_stack_nn = $total_array['total'];
 
 //本月领用
 $sql = "select sum(nn) as total from detail where time > $start_time and time <= $end_time";
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $out_stack_nn = $total_array['total'];
 
 //本月库存
 $sql = "select sum(nn) as total from totaldetail where time <= $end_time";//初始入库，到查询时间之后的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $en_total_nn = $total_array['total'];
 
 $sql = "select sum(nn) as total from detail where time <= $end_time";//初始入库，到查询时间之前吃的总量
 $mysqli_result = $db->query($sql);
-$total_array = $mysqli_result->fetch_array(MYSQL_ASSOC);
+$total_array = mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
 $en_eat_nn = $total_array['total'];
 
 $this_stack_nn = $en_total_nn - $en_eat_nn;//总量减去吃的总量等于现有库存

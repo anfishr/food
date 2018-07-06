@@ -11,7 +11,6 @@ $total_ht = $num_find->total("ht");
 $total_bg = $num_find->total("bg");
 $total_nn = $num_find->total("nn");
 
-print_r($total_fbm);
 
 //连接数据库，取下方滚动的数据
 
@@ -22,7 +21,6 @@ if ($mysqli_result == false) {
     echo "SQL错误！";
     exit;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -75,9 +73,11 @@ window.onload=function(){
     var ali = oul.getElementsByTagName('li');
     var spa = -2;               
 
-    oul.innerHTML=oul.innerHTML+oul.innerHTML;
-    oul.style.height=ali[0].offsetHeight*ali.length+'px';
+/*    oul.innerHTML=oul.innerHTML+oul.innerHTML;
+      oul.style.height=ali[0].offsetHeight*ali.length+'px';*/
 
+
+    //向上移动
     function move(){
         if(oul.offsetTop<-oul.offsetHeight/2){
             oul.style.top='0';
@@ -91,6 +91,8 @@ window.onload=function(){
     }
 
     var timer = setInterval(move,100)
+
+
     odiv.onmousemove=function(){clearInterval(timer);}
 
     odiv.onmouseout=function(){timer = setInterval(move,100)};
@@ -155,8 +157,8 @@ window.onload=function(){
 
 <div id="div1"> 
 	<ul> 
-	    <?php       
-	    while($row = $mysqli_result->fetch_array(MYSQL_ASSOC)) {
+	    <?php      
+	    while ($row =mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC) ) {
 	    ?>
 	    <div>
 	        <li>

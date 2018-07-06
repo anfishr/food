@@ -12,11 +12,11 @@ class find {
             echo "SQL错误！";
             exit;
         }
-        $total_array = $total_result->fetch_array(MYSQL_ASSOC);
 
-        $total = $total_array['total'];
-       
-        return $total;
+        $row=mysqli_fetch_array($total_result,MYSQLI_NUM);
+        return $row[0];
+
+        
         
         }
 }
