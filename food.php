@@ -1,5 +1,6 @@
 <?php
 include('foodclass_find.php');
+include("fooddb.php");
 date_default_timezone_set('Asia/Shanghai'); 
 
 //取出各个食物的库存
@@ -17,18 +18,7 @@ $total_nn = $num_fbm->total("nn");
 
 
 //连接数据库，取下方滚动的数据
-$host = "127.0.0.1";
-$dbuser = "root";
-$password = "";
-$dbname = "food";
-$db = new mysqli($host, $dbuser, $password, $dbname);
 
-if ($db->connect_errno != 0) {
-    echo "连接失败:";
-    echo $db->connect_error;
-    exit;
-}
-$db->query("set names UTF8");
 $sql = "select * from detail order by time desc";
 
 $mysqli_result = $db->query($sql);
@@ -45,7 +35,7 @@ if ($mysqli_result == false) {
 <meta charset="UTF-8"/>
 <link rel="stylesheet" type="text/css" href="foodcss.css"/>
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js" ></script>
-<title>零食</title>
+<title>零食领用</title>
 
 <script type="text/javascript">
 
@@ -143,14 +133,14 @@ window.onload=function(){
 <div class="addGoods">
       <div class="goods_list">
           <ul>
-            <li><img class="goods_img" src="fbm.jpg"><p>方便面</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_fbm;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="fbm">0</span><img class="jia"  src="jiahao.jpg"></div></div></li>
-            <li><img class="goods_img" src="ht.jpg"><p>火腿</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_ht;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="ht">0</span><img class="jia" src="jiahao.jpg"></div></div></li>  
-            <li><img class="goods_img" src="bg.jpg"><p>饼干</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_bg;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="bg">0</span><img class="jia" src="jiahao.jpg"></div></div></li>  
-            <li><img class="goods_img" src="nn.jpg"><p>牛奶</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_nn;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="nn">0</span><img class="jia" src="jiahao.jpg"></div></div></li>      
+            <div class="liout"><img class="goods_img" src="fbm.jpg"><p>方便面</p>
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_fbm;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="fbm">0</span><img class="jia"  src="jiahao.jpg"></div></div></div>
+            <div class="liout"><img class="goods_img" src="ht.jpg"><p>火腿</p>
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_ht;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="ht">0</span><img class="jia" src="jiahao.jpg"></div></div></div>  
+            <div class="liout"><img class="goods_img" src="bg.jpg"><p>饼干</p>
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_bg;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="bg">0</span><img class="jia" src="jiahao.jpg"></div></div></div>  
+            <div class="liout"><img class="goods_img" src="nn.jpg"><p>牛奶</p>
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_nn;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="nn">0</span><img class="jia" src="jiahao.jpg"></div></div></div>      
           </ul>
 
           <div class="pay">共计<span class="totalNum">0</span>件

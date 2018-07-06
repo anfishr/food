@@ -1,5 +1,6 @@
 <?php
 include('foodclass_find.php');
+include("fooddb.php");
 
 //取出各个食物的库存
 $num_fbm = new find();
@@ -26,20 +27,6 @@ $et = $_POST["endtime"];
 
 $start_time = strtotime("$st");
 $end_time = strtotime("$et");
-
-$host = "127.0.0.1";
-$dbuser = "root";
-$password = "";
-$dbname = "food";
-$db = new mysqli($host, $dbuser, $password, $dbname);
-
-if ($db->connect_errno != 0) {
-    echo "连接失败:";
-    echo $db->connect_error;
-    exit;
-}
-$db->query("set names UTF8");
-
 
 //fbm上月库存
 $sql = "select sum(fbm) as total from totaldetail where time <= $start_time";//初始入库，到查询时间之前的总量
@@ -228,7 +215,7 @@ $this_stack_nn = $en_total_nn - $en_eat_nn;//总量减去吃的总量等于现�
 <meta charset="UTF-8"/>
 <link rel="stylesheet" type="text/css" href="foodcss.css"/>
 
-<title>零食</title>
+<title>零食管理员</title>
 
 
 </head>
@@ -260,14 +247,14 @@ $this_stack_nn = $en_total_nn - $en_eat_nn;//总量减去吃的总量等于现�
     <div class="goods_list">
     <form action="foodadminmain.php" method="post" style="display:inline">
         <ul>
-            <li><img class="goods_img" src="fbm.jpg"><p>方便面</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_fbm;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="fbm" value="0"/></div></li>
-            <li><img class="goods_img" src="ht.jpg"><p>火腿</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_ht;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="ht" value="0"/></div></li>  
-            <li><img class="goods_img" src="bg.jpg"><p>饼干</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_bg;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="bg" value="0"/></div></li>  
-            <li><img class="goods_img" src="nn.jpg"><p>牛奶</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_nn;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="nn" value="0"/></div></li>      
+            <div class="liout"><img class="goods_img" src="fbm.jpg"><p>方便面</p>
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_fbm;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="fbm" value="0"/></div></div>
+            <div class="liout"><img class="goods_img" src="ht.jpg"><p>火腿</p>
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_ht;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="ht" value="0"/></div></div>  
+            <div class="liout"><img class="goods_img" src="bg.jpg"><p>饼干</p>
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_bg;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="bg" value="0"/></div></div> 
+            <div class="liout"><img class="goods_img" src="nn.jpg"><p>牛奶</p>
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_nn;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="nn" value="0"/></div></div>      
         </ul>
 
         <div class="pay">
