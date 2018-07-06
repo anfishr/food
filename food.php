@@ -4,17 +4,12 @@ include("fooddb.php");
 date_default_timezone_set('Asia/Shanghai'); 
 
 //取出各个食物的库存
-$num_fbm = new find();
-$total_fbm = $num_fbm->total("fbm");
+$num_find = new find();
 
-$num_ht = new find();
-$total_ht = $num_ht->total("ht");
-
-$num_bg = new find();
-$total_bg = $num_bg->total("bg");
-
-$num_nn = new find();
-$total_nn = $num_fbm->total("nn");
+$total_fbm = $num_find->total("fbm");
+$total_ht = $num_find->total("ht");
+$total_bg = $num_find->total("bg");
+$total_nn = $num_find->total("nn");
 
 
 //连接数据库，取下方滚动的数据
@@ -34,7 +29,7 @@ if ($mysqli_result == false) {
 <head>
 <meta charset="UTF-8"/>
 <link rel="stylesheet" type="text/css" href="foodcss.css"/>
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js" ></script>
+<script type="text/javascript" src="jquery.js" ></script>
 <title>零食领用</title>
 
 <script type="text/javascript">

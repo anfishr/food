@@ -1,8 +1,8 @@
 <?php
-$host = "127.0.0.1";
-$dbuser = "root";
-$password = "";
-$dbname = "food";
+$host = "190.168.0.14";
+$dbuser = "wsadmin";
+$password = "xast890567??";
+$dbname = "db_ajc_food";
 
 $db = new mysqli($host, $dbuser, $password, $dbname);
 if ($db->connect_errno != 0) {

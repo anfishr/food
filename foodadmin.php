@@ -279,7 +279,7 @@ $this_stack_nn = $en_total_nn - $en_eat_nn;//总量减去吃的总量等于现�
 </div>
 
 
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js" ></script>
+<script type="text/javascript" src="jquery.js" ></script>
 <script type="text/javascript">
 
 $(document).ready(function() {
