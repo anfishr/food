@@ -197,16 +197,6 @@ $this_stack_nn = $en_total_nn - $en_eat_nn;//总量减去吃的总量等于现�
 } 
 
 
-
-
-
-/*else {
-    
-    echo "<script> alert('请输入正确的时间段！');window.location.href='foodadmin.php';</script>";
-    exit;
-}*/
-
-
 ?>
 
 <?php if(@$_REQUEST['type'] != 'post'):?>
@@ -221,6 +211,7 @@ $this_stack_nn = $en_total_nn - $en_eat_nn;//总量减去吃的总量等于现�
 
 
 </head>
+<div class="content">
 <body>
 <table>
 <tr>
@@ -250,13 +241,13 @@ $this_stack_nn = $en_total_nn - $en_eat_nn;//总量减去吃的总量等于现�
     <form action="foodadminmain.php" method="post" style="display:inline">
         <ul>
             <div class="liout"><img class="goods_img" src="fbm.jpg"><p>方便面</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_fbm;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="fbm" value="0"/></div></div>
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_fbm;?></span><span style="margin-left:420px;">需要增加的数量：</span><input class="input" type="text" name="fbm" value="0"/></div></div>
             <div class="liout"><img class="goods_img" src="ht.jpg"><p>火腿</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_ht;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="ht" value="0"/></div></div>  
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_ht;?></span><span style="margin-left:420px;">需要增加的数量：</span><input class="input" type="text" name="ht" value="0"/></div></div>  
             <div class="liout"><img class="goods_img" src="bg.jpg"><p>饼干</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_bg;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="bg" value="0"/></div></div> 
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_bg;?></span><span style="margin-left:420px;">需要增加的数量：</span><input class="input" type="text" name="bg" value="0"/></div></div> 
             <div class="liout"><img class="goods_img" src="nn.jpg"><p>牛奶</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_nn;?></span><span style="margin-left:600px;">需要增加的数量：</span><input class="input" type="text" name="nn" value="0"/></div></div>      
+            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_nn;?></span><span style="margin-left:420px;">需要增加的数量：</span><input class="input" type="text" name="nn" value="0"/></div></div>      
         </ul>
 
         <div class="pay">
@@ -265,9 +256,9 @@ $this_stack_nn = $en_total_nn - $en_eat_nn;//总量减去吃的总量等于现�
     </form> 
           
     <form id="time" action="foodadmin.php" method="post"> 
-        <div style="margin-top: 120px; text-align:center;">
-            <span>查询开始时间：<input name="starttime" type="text" style="padding:6px 8px; font-size:16px"/></span>
-            <span>查询结束时间：<input name="endtime" type="text" style="padding:6px 8px; font-size:16px"/></span>
+        <div class="time">
+            <span>查询开始时间：<input name="starttime" type="text" id="start_time" class="Wdate" onfocus="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm', readOnly: true ,maxDate:'#F{$dp.$D(\'end_time\')}'});" format="yyyy-MM-dd HH:mm"  style="padding:6px 8px; font-size:16px"/></span>
+            <span>查询结束时间：<input name="endtime" type="text" id="end_time" class="Wdate" onfocus="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm', readOnly: true ,minDate:'#F{$dp.$D(\'start_time\')}'});" format="yyyy-MM-dd HH:mm"  style="padding:6px 8px; font-size:16px"/></span>
 
             <input type="hidden" name="type" value="post" />
 
@@ -282,6 +273,7 @@ $this_stack_nn = $en_total_nn - $en_eat_nn;//总量减去吃的总量等于现�
 
 
 <script type="text/javascript" src="jquery.js" ></script>
+<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -372,5 +364,6 @@ $(document).ready(function() {
             <td><?php echo $this_stack_nn = empty($this_stack_nn)? "" : $this_stack_nn;?></td>
         </tr>
     </table>
+</div>
 </div>
 <?php endif; ?>

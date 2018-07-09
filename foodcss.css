@@ -1,4 +1,14 @@
+.content {
+	width: 1000px;
+	margin: 0 auto;
+
+}
+
+
 * { margin: 0; padding: 0;}
+
+
+body { overflow-x: hidden; }
 
 .h {
 	text-align:center;
@@ -8,7 +18,7 @@
     background-color: #FFF;
     border: 1px solid black;
     height: 80px;
-    width: 50%;
+    width: 80%;
     margin: 0px auto;
     padding: 20px;
 
@@ -53,12 +63,11 @@
 }
 
 .pay {
-	margin-top: 20px;
-	margin-right: -900px;
+	margin: 20px;
+	width: 550px;
+	float: right;
     background-color: #FFF;
-    width: 100%;
-    height: 100px;
-    float: right;
+
 
 }
 .pay .totalNum {
@@ -76,7 +85,7 @@
 }
 
 
-#div1{ width: 1200px; height: 200px; position: relative; margin: 20px auto; overflow: hidden;}
+#div1{ width: 1000px; height: 200px; position: relative; margin: 20px auto; overflow: hidden; }
 
 #div1 ul { width: 60%; height: 120px; position: relative; margin: 0px 250px;}
 
@@ -84,4 +93,4 @@
 
 p { font-size: 18px; }
 
-
+.time {margin-top: 90px; text-align:center;}
