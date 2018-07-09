@@ -108,7 +108,7 @@ window.onload=function(){
 
 </head>
 <body>
-<<<<<<< HEAD
+
 <div class="content">
 	<table>
 	<tr>
@@ -176,73 +176,6 @@ window.onload=function(){
 		    ?>   
 	    </ul>                 
 	</div>
-=======
-<table>
-<tr>
-    <td>当前时间：</td>
-    <td id="CurrentTime"></td>
-    <script type="text/javascript">
-        function changetime(){
-            var ary = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
-            var Timehtml = document.getElementById('CurrentTime');
-            var date = new Date();
-            Timehtml.innerHTML = ''+date.toLocaleString()+'   '+ary[date.getDay()];
-        }
-    </script>  
-</tr>
-</table>
-
-
-<div class="h">
-		<h2>西安三态电子商务有限公司</h2>
-		<h3>加班食物领取信息系统</h3>
-</div>
-<div class="addGoods">
-      <div class="goods_list">
-          <ul>
-            <div class="liout"><img class="goods_img" src="fbm.jpg"><p>方便面</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_fbm;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="fbm">0</span><img class="jia"  src="jiahao.jpg"></div></div></div>
-            <div class="liout"><img class="goods_img" src="ht.jpg"><p>火腿</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_ht;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="ht">0</span><img class="jia" src="jiahao.jpg"></div></div></div>  
-            <div class="liout"><img class="goods_img" src="bg.jpg"><p>饼干</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_bg;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="bg">0</span><img class="jia" src="jiahao.jpg"></div></div></div>  
-            <div class="liout"><img class="goods_img" src="nn.jpg"><p>牛奶</p>
-            	<div class="goods_num"><span class="goods_num">库存:<?php echo $total_nn;?></span><div class="num"><img class="jian" src="jianhao.jpg" /><span id="nn">0</span><img class="jia" src="jiahao.jpg"></div></div></div>      
-          </ul>
-
-          <div class="pay">共计<span class="totalNum">0</span>件
-	          <form action="foodmain.php" method="post" style="display:inline">
-              <input type="hidden" name="fbm" value="0">
-              <input type="hidden" name="ht" value="0">
-              <input type="hidden" name="bg" value="0">
-              <input type="hidden" name="nn" value="0">
-
-		          <span>领取人：<input name="user" type="text" style="padding:8px 10px; font-size:16px"/></span>
-		          <span><button  id="btn" type="submit">提交领取</button></span>
-	          </form>
-          </div>
-      </div>
-</div>
-
-<div id="div1"> 
-	<ul> 
-	    <?php      
-	    while ($row =mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC) ) {
-	    ?>
-	    <div>
-	        <li>
-	        <span><?php echo date("Y-m-d H:i:s",$row['time']);?></span>
-	        <span><?php echo $row["user"]." 领取了";?></span>
-	        <span><?php echo $row["fbm"]."桶方便面";?></span>
-	        <span><?php echo ",".$row["ht"]."根火腿";?></span>
-	        <span><?php echo ",".$row["bg"]."包饼干";?></span>
-	        <span><?php echo ",".$row["nn"]."盒牛奶";?></span></li>   
-	    </div>        
-	    <?php
-	    }
-	    ?>   
-    </ul>                 
->>>>>>> f8c00bca4e0938db62be7da0044dfb0ab2a9761b
 </div>
 </body>
 </html>
