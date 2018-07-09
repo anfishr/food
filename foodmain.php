@@ -9,11 +9,11 @@ $fbm = $data123["fbm"];
 $ht = $data123["ht"];
 $bg = $data123["bg"];
 $nn = $data123["nn"];
-
+$ip = $data123["ip"];
 
 //验证人
 if ($user == "") {
-	echo "<script> alert('请输入正确的领取人！');window.location.href='food.php';</script>";
+	echo "<script> alert('请输入正确的领取人！');window.location.href='food.php'; </script>";
 	exit;
 }
 
@@ -35,9 +35,10 @@ if ($fbm > $total_fbm or $ht > $total_ht or $bg > $total_bg or $nn > $total_nn) 
 	exit;
 }
 
-$sql = "insert into detail (time, user, fbm, ht, bg, nn) values ('{$time}','{$user}','{$fbm}','{$ht}','{$bg}','{$nn}')";
+$sql = "insert into detail (time, ip, user, fbm, ht, bg, nn) values ('{$time}','{$ip}','{$user}','{$fbm}','{$ht}','{$bg}','{$nn}')";
 
 $mysqli_result = $db->query($sql);
+
 if ($mysqli_result == false) {
 	echo "SQL错误！";
 	exit;

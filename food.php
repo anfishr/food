@@ -149,7 +149,11 @@ window.onload=function(){
 		              <input type="hidden" name="ht" value="0">
 		              <input type="hidden" name="bg" value="0">
 		              <input type="hidden" name="nn" value="0">
+						
+					  <input type="hidden" name="ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">	
 
+
+				
 			          <span>领取人：<input name="user" type="text" style="padding:8px 10px; font-size:16px"/></span>
 			          <span><button  id="btn" type="submit">提交领取</button></span>
 		          </form>
