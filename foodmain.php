@@ -9,8 +9,9 @@ $fbm = $data123["fbm"] ?: 0;
 $ht = $data123["ht"] ?: 0;
 $bg = $data123["bg"] ?: 0;
 $nn = $data123["nn"] ?: 0;
-$ip = $data123["ip"] ?: 0;
+//$ip = $data123["ip"] ?: 0;
 
+$ip = $_SERVER['REMOTE_ADDR'];
 
 //验证人
 if ($user == "") {
