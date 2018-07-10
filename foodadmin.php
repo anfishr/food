@@ -2,18 +2,13 @@
 include('foodclass_find.php');
 include("fooddb.php");
 date_default_timezone_set('Asia/Shanghai'); 
+
 //取出各个食物的库存
-$num_fbm = new find();
-$total_fbm = $num_fbm->total("fbm");
-
-$num_ht = new find();
-$total_ht = $num_ht->total("ht");
-
-$num_bg = new find();
-$total_bg = $num_bg->total("bg");
-
-$num_nn = new find();
-$total_nn = $num_fbm->total("nn");
+$num_find = new find();
+$total_fbm = $num_find->total("fbm");
+$total_ht = $num_find->total("ht");
+$total_bg = $num_find->total("bg");
+$total_nn = $num_find->total("nn");
 
 
 //连接数据库，获取上月库存

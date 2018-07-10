@@ -101,6 +101,27 @@ window.onload=function(){
      setInterval(changetime,1000);  
 
 
+     $("#btn").click(function(){
+         //console.log($('input[class="fbm"]').val());
+         //console.log($('input[name="fbm"]').val());
+		            $.ajax({
+		                url:"foodmain.php",
+		                type:"post",
+		                data:{'fbm':$('input[name="fbm"]').val(),'ht':$('input[name="ht"]').val(),'bg':$('input[name="bg"]').val(),'nn':$('input[name="nn"]').val(),'user':$("#user").val(),'ip':$("#ip").val()},
+		                success:function(data){
+		                    var data = eval("("+data+")");
+		                  	alert(data.msg);
+		                    if(data.code==1){
+		                    	location.reload();
+		                    }
+		                },
+		                error:function(e){
+		                    alert("错误！！");
+		                    window.clearInterval(timer);
+		                }
+		            });             
+    			});
+
 }
 
 </script>
@@ -150,12 +171,12 @@ window.onload=function(){
 		              <input type="hidden" name="bg" value="0">
 		              <input type="hidden" name="nn" value="0">
 						
-					  <input type="hidden" name="ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">	
+					  <input type="hidden" name="ip" id="ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">	
 
 
 				
-			          <span>领取人：<input name="user" type="text" style="padding:8px 10px; font-size:16px"/></span>
-			          <span><button  id="btn" type="submit">提交领取</button></span>
+			          <span>领取人：<input name="user" id="user" type="text" style="padding:8px 10px; font-size:16px"/></span>
+			          <span><button  id="btn" type="button">提交领取</button></span>
 		          </form>
 	          </div>
 	      </div>

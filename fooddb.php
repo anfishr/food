@@ -1,4 +1,5 @@
 <?php
+
 $host = "190.168.0.14";
 $dbuser = "wsadmin";
 $password = "xast890567??";
