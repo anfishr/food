@@ -252,8 +252,8 @@ $this_stack_nn = $en_total_nn - $en_eat_nn;//总量减去吃的总量等于现�
           
     <form id="time" action="foodadmin.php" method="post"> 
         <div class="time">
-            <span>查询开始时间：<input name="starttime" type="text" id="start_time" class="Wdate" onfocus="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm', readOnly: true ,maxDate:'#F{$dp.$D(\'end_time\')}'});" format="yyyy-MM-dd HH:mm"  style="padding:6px 8px; font-size:16px"/></span>
-            <span>查询结束时间：<input name="endtime" type="text" id="end_time" class="Wdate" onfocus="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm', readOnly: true ,minDate:'#F{$dp.$D(\'start_time\')}'});" format="yyyy-MM-dd HH:mm"  style="padding:6px 8px; font-size:16px"/></span>
+            <span>查询开始时间：<input placeholder='开始时间' name="starttime" type="text" id="start_time" class="Wdate" onfocus="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm', readOnly: true ,maxDate:'#F{$dp.$D(\'end_time\')}'});" format="yyyy-MM-dd HH:mm"  style="padding:6px 8px; font-size:16px"/></span>
+            <span>查询结束时间：<input placeholder='结束时间' name="endtime" type="text" id="end_time" class="Wdate" onfocus="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm', readOnly: true ,minDate:'#F{$dp.$D(\'start_time\')}'});" format="yyyy-MM-dd HH:mm"  style="padding:6px 8px; font-size:16px"/></span>
 
             <input type="hidden" name="type" value="post" />
 

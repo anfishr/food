@@ -21,6 +21,12 @@ if ($user == "") {
 	//exit;
 }
 
+//验证只能输入中文
+if(preg_match('/^[\x{4e00}-\x{9fa5}]+$/u', $user) <= 0){
+    echo json_encode(['code'=>2,'msg'=>'请输入你的中文姓名！']);
+    return;
+}
+
 //验证时间，19:30前不能领取食物
 date_default_timezone_set('Asia/Shanghai'); 
 $time = time();
