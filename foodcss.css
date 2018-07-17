@@ -87,10 +87,10 @@ body { overflow-x: hidden; }
 
 #div1{ width: 1000px; height: 200px; position: relative; margin: 20px auto; overflow: hidden; }
 
-#div1 ul { width: 60%; height: 120px; position: relative; margin: 0px 250px;}
+#div1 ul { width: 80%; height: 120px; position: relative; margin: 0px 180px;}
 
 #div1 ul li { padding: 5px; }
 
 p { font-size: 18px; }
 
-.time {margin-top: 90px; text-align:center;}
+.time {margin-top: 90px; margin-bottom: 50px; text-align:center;}
