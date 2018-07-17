@@ -2,8 +2,8 @@
 include("fooddb.php");
 include("foodadmin.php");
 
-$data321 = $_POST;
 
+$data321 = $_POST;
 
 $fbm = $data321["fbm"];
 $ht = $data321["ht"];
@@ -12,6 +12,11 @@ $nn = $data321["nn"];
 $ld = $data321["ld"];
 $slf = $data321["slf"];
 $ccs = $data321["ccs"];
+
+
+if ($fbm == 0 and $ht == 0 and $zsbg == 0 and $nn == 0 and $ld == 0 and $slf == 0 and $ccs == 0) {
+    echo "<script> alert('不能0库存入库！');window.location.href='foodadmin.php';</script>";
+}
 
 
 $db->query("update totalfood set total = ($total_fbm + $fbm) where name = 'fbm'");

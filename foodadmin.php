@@ -192,8 +192,8 @@ $this_stack_ccs = $stack_find->ts("ccs","$end_time");
                     type:"post",
                     data:$("#time").serialize(),
                     success:function(data){
-                        console.log(data);
                         $("#res").html(data);
+                        $('body,html').scrollTop($('body').height());
                     },
                     error:function(e){
                         alert("错误！！");
@@ -202,6 +202,9 @@ $this_stack_ccs = $stack_find->ts("ccs","$end_time");
                 });
 
         });
+
+
+
     });
 
 
