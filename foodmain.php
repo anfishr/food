@@ -12,7 +12,7 @@ $nn = $data123["nn"] ?: 0;
 $ld = $data123["ld"] ?: 0;
 $slf = $data123["slf"] ?: 0;
 $ccs = $data123["ccs"] ?: 0;
-
+$mb = $data123["mb"] ?: 0;
 
 $ip = $_SERVER['REMOTE_ADDR'];
 
@@ -48,7 +48,7 @@ $t2 = "8:30";
  }
 
 //验证什么都不领
-if ($fbm == 0 and $ht == 0 and $zsbg == 0 and $nn == 0 and $ld == 0 and $slf == 0 and $ccs == 0) {
+if ($fbm == 0 and $ht == 0 and $zsbg == 0 and $nn == 0 and $ld == 0 and $slf == 0 and $ccs == 0 and $mb == 0) {
 	echo json_encode(['code'=>2,'msg'=>'你什么都不吃，就点提交了，这是不行的！']);
 	return;
 }
@@ -62,19 +62,21 @@ $total_nn = $num_find->total("nn");
 $total_ld = $num_find->total("ld");
 $total_slf = $num_find->total("slf");
 $total_ccs = $num_find->total("ccs");
-
+$total_mb = $num_find->total("mb");
 
 //echo $total_ccs ;
 //验证取出的食物不能大于库存
-if ($fbm > $total_fbm or $ht > $total_ht or $zsbg > $total_zsbg or $nn > $total_nn or $ld > $total_ld or $slf > $total_slf or $ccs > $total_ccs) {
+if ($fbm > $total_fbm or $ht > $total_ht or $zsbg > $total_zsbg or $nn > $total_nn or $ld > $total_ld or $slf > $total_slf or $ccs > $total_ccs
+	or $mb > $mb) {
+
 	echo json_encode(['code'=>2,'msg'=>'请注意，您领取的食物大于现有数量！']);
 	return;
 	//echo "<script> alert('请注意，您领取的食物大于现有数量！');window.location.href='food.php';</script>";
 	//exit;
 }
 
-$sql = "insert into `detail` (time,datetime, ip, user, fbm, ht, zsbg, nn, ld, slf, ccs) 
-        values ('{$time}','{$datetime}','{$ip}','{$user}',{$fbm},'{$ht}','{$zsbg}','{$nn}','{$ld}','{$slf}','{$ccs}')";
+$sql = "insert into `detail` (time,datetime, ip, user, fbm, ht, zsbg, nn, ld, slf, ccs, mb) 
+        values ('{$time}','{$datetime}','{$ip}','{$user}',{$fbm},'{$ht}','{$zsbg}','{$nn}','{$ld}','{$slf}','{$ccs}','{$mb}')";
 
 $mysqli_result = $db->query($sql);
 
@@ -91,6 +93,7 @@ $db->query("update totalfood set total = ($total_nn - $nn) where name = 'nn'");
 $db->query("update totalfood set total = ($total_ld - $ld) where name = 'ld'");
 $db->query("update totalfood set total = ($total_slf - $slf) where name = 'slf'");
 $db->query("update totalfood set total = ($total_ccs - $ccs) where name = 'ccs'");
+$db->query("update totalfood set total = ($total_mb - $mb) where name = 'mb'");
 
 echo json_encode(['code'=>1,'msg'=>'领取成功！']);
 	return;

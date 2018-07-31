@@ -13,9 +13,7 @@ $total_nn = $num_find->total("nn");
 $total_ld = $num_find->total("ld");
 $total_slf = $num_find->total("slf");
 $total_ccs = $num_find->total("ccs");
-
-
-
+$total_mb = $num_find->total("mb");
 
 
 
@@ -153,6 +151,7 @@ if ($mysqli_result == false) {
                         'ld': $('input[name="ld"]').val(),
                         'slf': $('input[name="slf"]').val(),
                         'ccs': $('input[name="ccs"]').val(),
+                        'mb': $('input[name="mb"]').val(),
 
 
 
@@ -204,7 +203,7 @@ if ($mysqli_result == false) {
     </div>
     <div class="addGoods">
         <div class="goods_list">
-            <div>
+
                 <div class="liout"><img class="goods_img" src="fbm.jpg">
                     <p>方便面</p>
                         <div class="goods_num">
@@ -217,6 +216,7 @@ if ($mysqli_result == false) {
                         </div>
                     </div>
                 </div>
+
                 <div class="liout"><img class="goods_img" src="ht.jpg">
                     <p>火腿</p>
                     <div class="goods_num"><span>库存:</span><span id="total_ht"><?php echo $total_ht; ?></span>
@@ -225,6 +225,7 @@ if ($mysqli_result == false) {
                         </div>
                     </div>
                 </div>
+
                 <div class="liout"><img class="goods_img" src="zsbg.jpg">
                     <p>芝士饼干</p>
                     <div class="goods_num"><span>库存:</span><span id="total_zsbg"><?php echo $total_zsbg; ?></span>
@@ -233,6 +234,7 @@ if ($mysqli_result == false) {
                         </div>
                     </div>
                 </div>
+
                 <div class="liout"><img class="goods_img" src="nn.jpg">
                     <p>牛奶</p>
                     <div class="goods_num"><span>库存:</span><span id="total_nn"><?php echo $total_nn; ?></span>
@@ -241,6 +243,7 @@ if ($mysqli_result == false) {
                         </div>
                     </div>
                 </div>
+
                 <div class="liout"><img class="goods_img" src="ld.jpg">
                     <p>卤蛋</p>
                     <div class="goods_num"><span>库存:</span><span id="total_ld"><?php echo $total_ld; ?></span>
@@ -249,6 +252,7 @@ if ($mysqli_result == false) {
                         </div>
                     </div>
                 </div>
+
                 <div class="liout"><img class="goods_img" src="slf.jpg">
                     <p>酸辣粉</p>
                     <div class="goods_num"><span>库存:</span><span id="total_slf"><?php echo $total_slf; ?></span>
@@ -257,6 +261,7 @@ if ($mysqli_result == false) {
                         </div>
                     </div>
                 </div>
+
                 <div class="liout"><img class="goods_img" src="ccs.jpg">
                     <p>脆脆鲨</p>
                     <div class="goods_num"><span>库存:</span><span id="total_ccs"><?php echo $total_ccs; ?></span>
@@ -265,10 +270,16 @@ if ($mysqli_result == false) {
                         </div>
                     </div>
                 </div>
-
-
-
-
+                    
+                <div class="liout"><img class="goods_img" src="mb.jpg">
+                    <p>面包</p>
+                    <div class="goods_num"><span>库存:</span><span id="total_mb"><?php echo $total_mb; ?></span>
+                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="mb">0</span><img class="jia"
+                                                                                                         src="jiahao.jpg">
+                        </div>
+                    </div>
+               
+                </div>
 
 
 
@@ -283,6 +294,7 @@ if ($mysqli_result == false) {
                     <input type="hidden" name="ld" value="0">
                     <input type="hidden" name="slf" value="0">
                     <input type="hidden" name="ccs" value="0">
+                    <input type="hidden" name="mb" value="0">
 
                     <!--<input type="hidden" name="ip" id="ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">-->
 
@@ -310,6 +322,7 @@ if ($mysqli_result == false) {
                         <span><?php if ($row["ld"]!=0){echo " " . $row["ld"] . "个卤蛋";} ?></span>
                         <span><?php if ($row["slf"]!=0){echo " " . $row["slf"] . "桶酸辣粉";} ?></span>
                         <span><?php if ($row["ccs"]!=0){echo " " . $row["ccs"] . "根脆脆鲨";} ?></span>
+                        <span><?php if ($row["mb"]!=0){echo " " . $row["mb"] . "个面包";} ?></span>
                     </li>
                 </div>
                 <?php

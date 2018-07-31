@@ -12,6 +12,7 @@ $total_nn = $num_find->total("nn");
 $total_ld = $num_find->total("ld");
 $total_slf = $num_find->total("slf");
 $total_ccs = $num_find->total("ccs");
+$total_mb = $num_find->total("mb");
 
 
 //连接数据库，获取上月库存
@@ -76,6 +77,11 @@ $in_stack_ccs = $stack_find->is("ccs","$start_time","$end_time");
 $out_stack_ccs = $stack_find->os("ccs","$start_time","$end_time");
 $this_stack_ccs = $stack_find->ts("ccs","$end_time");
 
+//8.取面包的库存变化表格
+$last_stack_mb = $stack_find->ls("mb","$start_time");
+$in_stack_mb = $stack_find->is("mb","$start_time","$end_time");
+$out_stack_mb = $stack_find->os("mb","$start_time","$end_time");
+$this_stack_mb = $stack_find->ts("mb","$end_time");
 }
 ?>
 
@@ -134,6 +140,8 @@ $this_stack_ccs = $stack_find->ts("ccs","$end_time");
                     <div class="goods_num"><span>库存:<?php echo $total_slf;?></span><span style="margin-left:420px;">需要增加的数量：</span><input class="input" type="text" name="slf" value="0"/></div></div>
                 <div class="liout"><img class="goods_img" src="ccs.jpg"><p>脆脆鲨</p>
                     <div class="goods_num"><span>库存:<?php echo $total_ccs;?></span><span style="margin-left:420px;">需要增加的数量：</span><input class="input" type="text" name="ccs" value="0"/></div></div>
+                <div class="liout"><img class="goods_img" src="mb.jpg"><p>面包</p>
+                    <div class="goods_num"><span>库存:<?php echo $total_mb;?></span><span style="margin-left:420px;">需要增加的数量：</span><input class="input" type="text" name="mb" value="0"/></div></div>
             </div>
 
             <div class="pay">
@@ -272,6 +280,13 @@ $this_stack_ccs = $stack_find->ts("ccs","$end_time");
                 <td><?php echo $in_stack_ccs = empty($in_stack_ccs)? "" : $in_stack_ccs;?></td>
                 <td><?php echo $out_stack_ccs = empty($out_stack_ccs)? "" : $out_stack_ccs;?></td>
                 <td><?php echo $this_stack_ccs = empty($this_stack_ccs)? "" : $this_stack_ccs;?></td>
+            </tr>
+            <tr>
+                <td>面包</td>
+                <td><?php echo $last_stack_mb = empty($last_stack_mb)? "" : $last_stack_mb;?></td>
+                <td><?php echo $in_stack_mb = empty($in_stack_mb)? "" : $in_stack_mb;?></td>
+                <td><?php echo $out_stack_mb = empty($out_stack_mb)? "" : $out_stack_mb;?></td>
+                <td><?php echo $this_stack_mb = empty($this_stack_mb)? "" : $this_stack_mb;?></td>
             </tr>
         </table>
     </div>
