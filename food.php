@@ -206,13 +206,8 @@ if ($mysqli_result == false) {
 
                 <div class="liout"><img class="goods_img" src="fbm.jpg">
                     <p>方便面</p>
-                        <div class="goods_num">
-                            <span>库存:</span>
-                            <span id="total_fbm"><?php echo $total_fbm; ?></span>
-                            <div class="num">
-                                <img class="jian" src="jianhao.jpg"/>
-                                <span id="fbm">0</span>
-                                <img class="jia" src="jiahao.jpg">
+                    <div class="goods_num"><span>库存:</span><span id="total_fbm"><?php echo $total_fbm; ?></span>
+                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="fbm">0</span><img class="jia" src="jiahao.jpg">
                         </div>
                     </div>
                 </div>
@@ -220,8 +215,7 @@ if ($mysqli_result == false) {
                 <div class="liout"><img class="goods_img" src="ht.jpg">
                     <p>火腿</p>
                     <div class="goods_num"><span>库存:</span><span id="total_ht"><?php echo $total_ht; ?></span>
-                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="ht">0</span><img class="jia"
-                                                                                                         src="jiahao.jpg">
+                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="ht">0</span><img class="jia" src="jiahao.jpg">                                                                                                       
                         </div>
                     </div>
                 </div>
@@ -229,8 +223,7 @@ if ($mysqli_result == false) {
                 <div class="liout"><img class="goods_img" src="zsbg.jpg">
                     <p>芝士饼干</p>
                     <div class="goods_num"><span>库存:</span><span id="total_zsbg"><?php echo $total_zsbg; ?></span>
-                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="zsbg">0</span><img class="jia"
-                                                                                                           src="jiahao.jpg">
+                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="zsbg">0</span><img class="jia" src="jiahao.jpg">                                                                                   
                         </div>
                     </div>
                 </div>
@@ -238,8 +231,7 @@ if ($mysqli_result == false) {
                 <div class="liout"><img class="goods_img" src="nn.jpg">
                     <p>牛奶</p>
                     <div class="goods_num"><span>库存:</span><span id="total_nn"><?php echo $total_nn; ?></span>
-                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="nn">0</span><img class="jia"
-                                                                                                         src="jiahao.jpg">
+                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="nn">0</span><img class="jia"src="jiahao.jpg">                                                                               
                         </div>
                     </div>
                 </div>
@@ -247,8 +239,7 @@ if ($mysqli_result == false) {
                 <div class="liout"><img class="goods_img" src="ld.jpg">
                     <p>卤蛋</p>
                     <div class="goods_num"><span>库存:</span><span id="total_ld"><?php echo $total_ld; ?></span>
-                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="ld">0</span><img class="jia"
-                                                                                                         src="jiahao.jpg">
+                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="ld">0</span><img class="jia" src="jiahao.jpg">                                                                               
                         </div>
                     </div>
                 </div>
@@ -256,8 +247,7 @@ if ($mysqli_result == false) {
                 <div class="liout"><img class="goods_img" src="slf.jpg">
                     <p>酸辣粉</p>
                     <div class="goods_num"><span>库存:</span><span id="total_slf"><?php echo $total_slf; ?></span>
-                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="slf">0</span><img class="jia"
-                                                                                                         src="jiahao.jpg">
+                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="slf">0</span><img class="jia" src="jiahao.jpg">                                                                                  
                         </div>
                     </div>
                 </div>
@@ -265,18 +255,16 @@ if ($mysqli_result == false) {
                 <div class="liout"><img class="goods_img" src="ccs.jpg">
                     <p>脆脆鲨</p>
                     <div class="goods_num"><span>库存:</span><span id="total_ccs"><?php echo $total_ccs; ?></span>
-                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="ccs">0</span><img class="jia"
-                                                                                                         src="jiahao.jpg">
+                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="ccs">0</span><img class="jia" src="jiahao.jpg">                                                          
                         </div>
                     </div>
                 </div>
                     
                 <div class="liout"><img class="goods_img" src="mb.jpg">
                     <p>面包</p>
-                    <div class="goods_num"><span>库存:</span><span id="total_mb"><?php echo $total_mb; ?></span>
-                        <div class="num"><img class="jian" src="jianhao.jpg"/><span id="mb">0</span><img class="jia"
-                                                                                                         src="jiahao.jpg">
-                        </div>
+	                    <div class="goods_num"><span>库存:</span><span id="total_mb"><?php echo $total_mb; ?></span> 
+	                    <div class="num"><img class="jian" src="jianhao.jpg"/><span id="mb">0</span><img class="jia" src="jiahao.jpg">                                                                                 
+	                    </div>
                     </div>
                
                 </div>
