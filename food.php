@@ -136,6 +136,11 @@ if ($mysqli_result == false) {
             changetime();
             setInterval(changetime, 1000);
 
+			$(document).keydown(function(event){
+			  if(event.keyCode ==13){
+			    $("#btn").trigger("click");
+			  }
+			});
 
             $("#btn").click(function () {
                 //console.log($('input[class="fbm"]').val());
@@ -170,7 +175,6 @@ if ($mysqli_result == false) {
                     }
                 });
             });
-
 
         });
 
@@ -274,7 +278,7 @@ if ($mysqli_result == false) {
             </div>
 
             <div class="pay">共计<span class="totalNum">0</span>件
-                <form action="foodmain.php" method="post" style="display:inline">
+                <form style="display:inline">
                     <input type="hidden" name="fbm" value="0">
                     <input type="hidden" name="ht" value="0">
                     <input type="hidden" name="zsbg" value="0">
